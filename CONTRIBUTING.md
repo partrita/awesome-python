@@ -1,20 +1,20 @@
-# Contributing
+# 기여하기
 
-Your contributions are always welcome!
+여러분의 기여는 언제나 환영합니다!
 
-## Guidelines
+## 가이드라인
 
-* Add one link per Pull Request.
-    * Make sure the PR title is in the format of `Add project-name`.
-    * Write down the reason why the library is awesome.
-* Add the link: `* [project-name](http://example.com/) - A short description ends with a period.`
-    * Keep descriptions concise and **short**.
-* Add a section if needed.
-    * Add the section description.
-    * Add the section title to Table of Contents.
-* Search previous Pull Requests or Issues before making a new one, as yours may be a duplicate.
-* Don't mention `Python` in the description as it's implied.
-* Check your spelling and grammar.
-* Remove any trailing whitespace.
+* 풀 리퀘스트당 하나의 링크만 추가합니다.
+    * PR 제목이 `Add project-name` 형식인지 확인합니다.
+    * 라이브러리가 왜 훌륭한지 이유를 적어주세요.
+* 링크 추가: `* [project-name](http://example.com/) - 마침표로 끝나는 짧은 설명입니다.`
+    * 설명은 간결하고 **짧게** 유지합니다.
+* 필요한 경우 섹션을 추가합니다.
+    * 섹션 설명을 추가합니다.
+    * 목차에 섹션 제목을 추가합니다.
+* 새로운 풀 리퀘스트나 이슈를 만들기 전에 이전의 것을 검색하여 중복되는지 확인합니다.
+* 설명에 `파이썬`을 언급하지 마세요. 이미 암시되어 있습니다.
+* 철자와 문법을 확인합니다.
+* 후행 공백을 제거합니다.
 
-Just a gentle reminder: **Try not to submit your own project. Instead, wait for someone finds it useful and submits it for you.**
+가벼운 알림: **자신의 프로젝트를 제출하지 마세요. 대신, 누군가가 유용하다고 생각하여 제출할 때까지 기다리세요.**

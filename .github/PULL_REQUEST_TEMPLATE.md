@@ -1,11 +1,11 @@
-## What is this Python project?
+## 이 파이썬 프로젝트는 무엇인가요?
 
-Describe features.
+특징을 설명해주세요.
 
-## What's the difference between this Python project and similar ones?
+## 이 파이썬 프로젝트와 유사한 프로젝트의 차이점은 무엇인가요?
 
-Enumerate comparisons.
+비교 사항을 열거해주세요.
 
 --
 
-Anyone who agrees with this pull request could submit an *Approve* review to it.
+이 풀 리퀘스트에 동의하는 사람은 누구나 *승인* 리뷰를 제출할 수 있습니다.

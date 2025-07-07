@@ -2,24 +2,21 @@
 # coding: utf-8
 
 """
-    The approach taken is explained below. I decided to do it simply.
-    Initially I was considering parsing the data into some sort of
-    structure and then generating an appropriate README. I am still
-    considering doing it - but for now this should work. The only issue
-    I see is that it only sorts the entries at the lowest level, and that
-    the order of the top-level contents do not match the order of the actual
-    entries.
+    취해진 접근 방식은 아래에 설명되어 있습니다. 간단하게 하기로 결정했습니다.
+    처음에는 데이터를 어떤 종류의 구조로 구문 분석한 다음 적절한 README를 생성하는 것을 고려했습니다.
+    여전히 고려 중이지만 지금은 이것으로 충분할 것입니다. 유일한 문제는 가장 낮은 수준의 항목만 정렬하고
+    최상위 콘텐츠의 순서가 실제 항목의 순서와 일치하지 않는다는 것입니다.
 
-    This could be extended by having nested blocks, sorting them recursively
-    and flattening the end structure into a list of lines. Revision 2 maybe ^.^.
+    이것은 중첩된 블록을 갖고 재귀적으로 정렬한 다음 최종 구조를 줄 목록으로 평면화하여 확장할 수 있습니다.
+    아마도 개정 2에서요 ^.^.
 """
 
 def sort_blocks():
-    # First, we load the current README into memory
+    # 먼저 현재 README를 메모리로 로드합니다.
     with open('README.md', 'r') as read_me_file:
         read_me = read_me_file.read()
 
-    # Separating the 'table of contents' from the contents (blocks)
+    # '목차'를 내용(블록)과 분리합니다.
     table_of_contents = ''.join(read_me.split('- - -')[0])
     blocks = ''.join(read_me.split('- - -')[1]).split('\n# ')
     for i in range(len(blocks)):
@@ -28,14 +25,14 @@ def sort_blocks():
         else:
             blocks[i] = '# ' + blocks[i] + '\n'
 
-    # Sorting the libraries
+    # 라이브러리 정렬
     inner_blocks = sorted(blocks[0].split('##'))
     for i in range(1, len(inner_blocks)):
         if inner_blocks[i][0] != '#':
             inner_blocks[i] = '##' + inner_blocks[i]
     inner_blocks = ''.join(inner_blocks)
 
-    # Replacing the non-sorted libraries by the sorted ones and gathering all at the final_README file
+    # 정렬되지 않은 라이브러리를 정렬된 라이브러리로 바꾸고 final_README 파일에 모두 모읍니다.
     blocks[0] = inner_blocks
     final_README = table_of_contents + '- - -' + ''.join(blocks)
 
@@ -43,14 +40,14 @@ def sort_blocks():
         sorted_file.write(final_README)
 
 def main():
-    # First, we load the current README into memory as an array of lines
+    # 먼저 현재 README를 줄 배열로 메모리에 로드합니다.
     with open('README.md', 'r') as read_me_file:
         read_me = read_me_file.readlines()
 
-    # Then we cluster the lines together as blocks
-    # Each block represents a collection of lines that should be sorted
-    # This was done by assuming only links ([...](...)) are meant to be sorted
-    # Clustering is done by indentation
+    # 그런 다음 줄을 블록으로 함께 클러스터링합니다.
+    # 각 블록은 정렬해야 하는 줄 모음을 나타냅니다.
+    # 이것은 링크([...](...))만 정렬되도록 가정하여 수행되었습니다.
+    # 클러스터링은 들여쓰기로 수행됩니다.
     blocks = []
     last_indent = None
     for line in read_me:
@@ -68,14 +65,14 @@ def main():
             last_indent = None
 
     with open('README.md', 'w+') as sorted_file:
-        # Then all of the blocks are sorted individually
+        # 그런 다음 모든 블록을 개별적으로 정렬합니다.
         blocks = [
             ''.join(sorted(block, key=str.lower)) for block in blocks
         ]
-        # And the result is written back to README.md
+        # 그리고 결과를 README.md에 다시 씁니다.
         sorted_file.write(''.join(blocks))
 
-    # Then we call the sorting method
+    # 그런 다음 정렬 방법을 호출합니다.
     sort_blocks()
 
 
